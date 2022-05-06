@@ -127,10 +127,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # the client will need to go to https://myaccount.google.com/lesssecureapps to allow less secure apps.this allows third party apps to send gmail through account 
 
 
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtpd.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'drj@gmail.com'
-EMAIL_HOST_PASSWORD = config('emailPW')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 Email_USE_SSL = False
 
