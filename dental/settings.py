@@ -4,6 +4,7 @@ import os
 from site import USER_BASE
 import django_heroku
 import dj_database_url
+import whitenoise
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -116,7 +117,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -125,14 +126,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # the client will need to go to https://myaccount.google.com/lesssecureapps to allow less secure apps.this allows third party apps to send gmail through account 
 
-'''
+
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'drj@gmail.com'
 EMAIL_HOST_PASSWORD = config('emailPW')
 EMAIL_USE_TLS = True
 Email_USE_SSL = False
-'''
+
 
 
 #Test Version
@@ -140,10 +141,10 @@ Email_USE_SSL = False
 #python -m smtpd -n -c DebuggingServer localhost:1025
 
 
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_USE_TLS = False
+# EMAIL_HOST = 'localhost'
+# EMAIL_PORT = 1025
+# EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = ''
+# EMAIL_USE_TLS = False
 
 django_heroku.settings(locals())
